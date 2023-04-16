@@ -11,7 +11,12 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'excerpt', 'description', 'status', 'user_id', 'category_id'];
+    protected $fillable = ['title', 'slug', 'excerpt', 'description', 'status', 'user_id', 'category_id'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function user(): BelongsTo
     {
